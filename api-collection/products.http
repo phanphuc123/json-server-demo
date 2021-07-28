@@ -1,0 +1,59 @@
+@baseUrl = http://localhost:3000/api
+@resourceName = products
+# Categories
+
+# @name getAllProduct
+
+GET {{baseUrl}}/{{resourceName}}
+
+###
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?color=teal&price_gte=700
+###
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=3
+###
+
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=5_sort=price&_order=asc
+
+
+###
+
+# @name addNewProduct
+
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+{
+    "categoryId": "be94fd5f-e945-44a2-8ef1-79ce281198e3",
+    "name": "Small Rubber Chips",
+    "color": "olive",
+    "price": 2000,
+    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+    "adjective": "Handmade"
+}
+
+###
+
+# @name updateProduct
+
+PATCH {{baseUrl}}/{{resourceName}}/-R-Rtan
+Content-Type: application/json
+
+{
+    "name": "Small Rubber Chips Update",
+    "color": "Yellow",
+    "price": 10000,
+    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+    "adjective": "Handmade"
+
+}
+###
+
+# @name removeProduct
+
+DELETE {{baseUrl}}/{{resourceName}}
+
+
